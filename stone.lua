@@ -6,7 +6,8 @@ minetest.register_tool("durapick:stone_pick", {
 		full_punch_interval = 1.3,
 		max_drop_level=1,
 		groupcaps={
-			cracky = {times={[2]=2.0, [3]=1.00}, uses=durapick_durability_stone, maxlevel=1},
+            -- Added ability for stone pick to mine like steel pick, just slower
+			cracky = {times={[1]=5.00, [2]=1.60, [3]=0.90}, uses=durapick_durability_stone, maxlevel=1},
 		},
 		damage_groups = {fleshy=4},
     },

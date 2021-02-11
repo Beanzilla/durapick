@@ -2,12 +2,12 @@
 -- Settings
 
 -- Durabilites
-durapick_durability_wood = 50
-durapick_durability_stone = 100
-durapick_durability_steel = 140
-durapick_durability_bronze = 120
-durapick_durability_mese = 170
-durapick_durability_diamond = 240
+durapick_durability_wood = 100
+durapick_durability_stone = 200
+durapick_durability_steel = 300
+durapick_durability_bronze = 400
+durapick_durability_mese = 500
+durapick_durability_diamond = 600
 
 -- Resources
 durapick_stick = "default:stick"
