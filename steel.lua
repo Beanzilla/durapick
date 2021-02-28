@@ -14,12 +14,24 @@ minetest.register_tool("durapick:steel_pick", {
 	groups = {pickaxe = 1}
 })
 
-minetest.register_craft({
-    type = "shaped",
-    output = "durapick:steel_pick 1",
-    recipe = { -- Use globals to allow customized recipes
-        {durapick_resource_steel, durapick_resource_steel, durapick_resource_steel},
-        {"", durapick_stick, ""},
-        {"", durapick_stick, ""}
-    },
-})
+if durapick_previous_pick then
+    minetest.register_craft({
+        type = "shaped",
+        output = "durapick:steel_pick 1",
+        recipe = { -- Use globals to allow customized recipes
+            {durapick_resource_steel, "durapick:bronze_pick", durapick_resource_steel},
+            {"", durapick_stick, ""},
+            {"", durapick_stick, ""}
+        },
+    })
+else
+    minetest.register_craft({
+        type = "shaped",
+        output = "durapick:steel_pick 1",
+        recipe = { -- Use globals to allow customized recipes
+            {durapick_resource_steel, durapick_resource_steel, durapick_resource_steel},
+            {"", durapick_stick, ""},
+            {"", durapick_stick, ""}
+        },
+    })
+end

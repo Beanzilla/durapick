@@ -14,12 +14,24 @@ minetest.register_tool("durapick:bronze_pick", {
 	groups = {pickaxe = 1}
 })
 
-minetest.register_craft({
-    type = "shaped",
-    output = "durapick:bronze_pick 1",
-    recipe = {
-        {durapick_resource_bronze, durapick_resource_bronze, durapick_resource_bronze},
-        {"", durapick_stick, ""},
-        {"", durapick_stick, ""}
-    },
-})
+if durapick_previous_pick then
+    minetest.register_craft({
+        type = "shaped",
+        output = "durapick:bronze_pick 1",
+        recipe = {
+            {durapick_resource_bronze, "durapick:stone_pick", durapick_resource_bronze},
+            {"", durapick_stick, ""},
+            {"", durapick_stick, ""}
+        },
+    })
+else
+    minetest.register_craft({
+        type = "shaped",
+        output = "durapick:bronze_pick 1",
+        recipe = {
+            {durapick_resource_bronze, durapick_resource_bronze, durapick_resource_bronze},
+            {"", durapick_stick, ""},
+            {"", durapick_stick, ""}
+        },
+    })
+end

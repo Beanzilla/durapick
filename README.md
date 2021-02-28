@@ -11,3 +11,7 @@ Each pickaxe is a bit expensive but worth it, sitting at about 5 times the durab
 Collect them all and make a very powerful Dev Pickaxe, unlimited durability mines everything in insane speeds and did I mention it's fast too.
 
 By: Beanzilla
+
+# Extras
+
+Texture modification by: apamment

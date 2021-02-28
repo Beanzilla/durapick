@@ -6,7 +6,7 @@ minetest.register_tool("durapick:diamond_pick", {
 		full_punch_interval = 0.9,
 		max_drop_level=3,
 		groupcaps={
-			cracky = {times={[1]=1.9, [2]=0.9, [3]=0.40}, uses=durapick_durability_diamond, maxlevel=3},
+			cracky = {times={[1]=2.0, [2]=1.0, [3]=0.50}, uses=durapick_durability_diamond, maxlevel=3},
 		},
 		damage_groups = {fleshy=5},
 	},
@@ -14,12 +14,24 @@ minetest.register_tool("durapick:diamond_pick", {
 	groups = {pickaxe = 1}
 })
 
-minetest.register_craft({
-    type = "shaped",
-    output = "durapick:diamond_pick 1",
-    recipe = {
-        {durapick_resource_diamond, durapick_resource_diamond, durapick_resource_diamond},
-        {"", durapick_stick, ""},
-        {"", durapick_stick, ""}
-    },
-})
+if durapick_previous_pick then
+    minetest.register_craft({
+        type = "shaped",
+        output = "durapick:diamond_pick 1",
+        recipe = {
+            {durapick_resource_diamond, "durapick:mese_pick", durapick_resource_diamond},
+            {"", durapick_stick, ""},
+            {"", durapick_stick, ""}
+        },
+    })
+else
+    minetest.register_craft({
+        type = "shaped",
+        output = "durapick:diamond_pick 1",
+        recipe = {
+            {durapick_resource_diamond, durapick_resource_diamond, durapick_resource_diamond},
+            {"", durapick_stick, ""},
+            {"", durapick_stick, ""}
+        },
+    })
+end
