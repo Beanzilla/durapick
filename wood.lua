@@ -25,9 +25,15 @@ minetest.register_craft({
     },
 })
 
-minetest.register_craftitem("durapick:dura_wood", {
+default = rawget(_G, "default") or {}
+minetest.register_node("durapick:dura_wood", {
     description = "Dura Wood",
-    inventory_image = "durapick_resource_wood.png"
+    paramtype2 = "facedir",
+    place_param2 = 0,
+    tiles = {"durapick_resource_wood.png"},
+    is_ground_content = false,
+    groups = {choppy = 2, oddly_breakable_by_hand = 2},
+    sounds = default.node_sound_wood_defaults(),
 })
 
 ItemStack("durapick:dura_wood", 99)
