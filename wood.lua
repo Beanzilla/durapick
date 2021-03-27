@@ -7,7 +7,7 @@ minetest.register_tool("durapick:wood_pick", {
 		max_drop_level=1,
 		groupcaps={
             -- Changed it so the wood pick has the ability to mine like a steel pick, just slower
-			cracky = {times={[3]=1.60}, uses=durapick_durability_wood, maxlevel=1},
+			cracky = {times={[3]=1.60}, uses=(durapick_durability_wood * durapick_durability_factor), maxlevel=1},
 		},
 		damage_groups = {fleshy=4},
     },

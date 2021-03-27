@@ -6,7 +6,7 @@ minetest.register_tool("durapick:mese_pick", {
 		full_punch_interval = 0.8,
 		max_drop_level=3,
 		groupcaps={
-			cracky = {times={[1]=2.4, [2]=1.2, [3]=0.60}, uses=durapick_durability_mese, maxlevel=3},
+			cracky = {times={[1]=2.4, [2]=1.2, [3]=0.60}, uses=(durapick_durability_mese * durapick_durability_factor), maxlevel=3},
 		},
 		damage_groups = {fleshy=5},
 	},

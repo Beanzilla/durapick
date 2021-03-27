@@ -12,11 +12,11 @@ if durapick_durability_dev then
 			max_drop_level=3,
 			groupcaps={
 				-- This will mine everything in 0.5 seconds
-				cracky={times={[1]=0.5, [2]=0.5, [3]=0.5}, durapick_durability_dev_amt, maxlevel=255},
-				crumbly={times={[1]=0.5, [2]=0.5, [3]=0.5}, durapick_durability_dev_amt, maxlevel=255},
-				snappy={times={[1]=0.5, [2]=0.5, [3]=0.5}, durapick_durability_dev_amt, maxlevel=255},
-				choppy={times={[1]=0.5, [2]=0.5, [3]=0.5}, durapick_durability_dev_amt, maxlevel=255},
-				dig_immediate={times={[1]=0.5, [2]=0.5, [3]=0.5}, durapick_durability_dev_amt, maxlevel=255},
+				cracky={times={[1]=0.5, [2]=0.5, [3]=0.5}, (durapick_durability_dev_amt * durapick_durability_factor), maxlevel=255},
+				crumbly={times={[1]=0.5, [2]=0.5, [3]=0.5}, (durapick_durability_dev_amt * durapick_durability_factor), maxlevel=255},
+				snappy={times={[1]=0.5, [2]=0.5, [3]=0.5}, (durapick_durability_dev_amt * durapick_durability_factor), maxlevel=255},
+				choppy={times={[1]=0.5, [2]=0.5, [3]=0.5}, (durapick_durability_dev_amt * durapick_durability_factor), maxlevel=255},
+				dig_immediate={times={[1]=0.5, [2]=0.5, [3]=0.5}, (durapick_durability_dev_amt * durapick_durability_factor), maxlevel=255},
 			},
 			-- Modified damage due to the fact it is craftable
 			damage_groups = {fleshy=8},

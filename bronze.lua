@@ -6,7 +6,7 @@ minetest.register_tool("durapick:bronze_pick", {
 		full_punch_interval = 1.0,
 		max_drop_level=1,
 		groupcaps={
-			cracky = {times={[1]=4.50, [2]=1.80, [3]=0.90}, uses=durapick_durability_bronze, maxlevel=2},
+			cracky = {times={[1]=4.50, [2]=1.80, [3]=0.90}, uses=(durapick_durability_bronze * durapick_durability_factor), maxlevel=2},
 		},
 		damage_groups = {fleshy=4},
     },

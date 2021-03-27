@@ -4,15 +4,18 @@ local moreblocks = minetest.get_modpath("moreblocks")
 -- Settings
 
 -- Durabilites
-durapick_durability_wood = 270     -- default:pick_wood 30
-durapick_durability_stone = 540    -- default:pick_stone 60
-durapick_durability_steel = 1620   -- default:pick_steel 180
-durapick_durability_bronze = 1620  -- default:pick_bronze 180
-durapick_durability_mese = 4860    -- default:pick_mese 540
-durapick_durability_diamond = 5490 -- default:pick_diamond 610
+durapick_durability_wood = 30     -- default:pick_wood 30
+durapick_durability_stone = 60    -- default:pick_stone 60
+durapick_durability_steel = 180   -- default:pick_steel 180
+durapick_durability_bronze = 360  -- default:pick_bronze 180
+durapick_durability_mese = 540    -- default:pick_mese 540
+durapick_durability_diamond = 610 -- default:pick_diamond 610
 
 durapick_durability_dev = false    -- Does the Dev Pickaxe have a durability?
-durapick_durability_dev_amt = durapick_durability_diamond * 9
+durapick_durability_dev_amt = 730
+
+-- How many pickaxes are 1 durapick equal too?
+durapick_durability_factor = 12
 
 -- Resources
 durapick_stick = "default:stick"
@@ -25,6 +28,8 @@ if moreblocks then -- If moreblocks exists, use compressed cobble
 else -- If not, then use something default
     durapick_resource_stone = "default:stonebrick"
 end
+
+-- Custom Resource
 durapick_resource_wood_post = "durapick:dura_wood"
 durapick_resource_wood_pre = "group:wood"
 
