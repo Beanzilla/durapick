@@ -16,4 +16,4 @@ By: Beanzilla
 
 # Extras
 
-Texture modification by: apamment
+Texture modification by: [apamment](https://github.com/apamment)
