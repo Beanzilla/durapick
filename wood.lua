@@ -1,5 +1,4 @@
 local default = rawget(_G, "default") or {}
-local morebocks = rawget(_G, "moreblocks") or {}
 
 -- Make such a thing
 minetest.register_tool("durapick:wood_pick", {
@@ -18,28 +17,17 @@ minetest.register_tool("durapick:wood_pick", {
 	groups = {pickaxe = 1}
 })
 
-if moreblocks == nil then
-	minetest.register_craft({
-	    type = "shaped",
-	    output = "durapick:wood_pick 1",
-	    recipe = { -- Use globals to allow customized recipes
-		{durapick_resource_wood_post, durapick_resource_wood_post, durapick_resource_wood_post},
-		{"", durapick_stick, ""},
-		{"", durapick_stick, ""}
-	    },
-	})
-else
-	minetest.register_craft({
-	    type = "shaped",
-	    output = "durapick:wood_pick 1",
-	    recipe = { -- Use more blocks instead of our own dura_wood
-		{"moreblocks:wood_tile", "moreblocks:wood_tile", "moreblocks:wood_tile"},
-		{"", durapick_stick, ""},
-		{"", durapick_stick, ""}
-	    },
-	})
-	
-end
+
+minetest.register_craft({
+    type = "shaped",
+    output = "durapick:wood_pick 1",
+    recipe = { -- Use globals to allow customized recipes
+	{durapick_resource_wood_post, durapick_resource_wood_post, durapick_resource_wood_post},
+	{"", durapick_stick, ""},
+	{"", durapick_stick, ""}
+    },
+})
+
 minetest.register_node("durapick:dura_wood", {
     description = "Dura Wood",
     paramtype2 = "facedir",
@@ -52,7 +40,7 @@ minetest.register_node("durapick:dura_wood", {
 
 ItemStack("durapick:dura_wood", 99)
 
-if moreblocks == nil then
+if durapick_resource_wood_pre ~= "" then
 	minetest.register_craft({
 	    type = "shaped",
 	    output = "durapick:dura_wood 1",
