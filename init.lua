@@ -30,8 +30,13 @@ else -- If not, then use something default
 end
 
 -- Custom Resource
-durapick_resource_wood_post = "durapick:dura_wood"
-durapick_resource_wood_pre = "group:wood"
+if moreblocks then
+    durapick_resource_wood_post = "moreblocks:wood_tile"
+    durapick_resource_wood_pre = ""
+else
+    durapick_resource_wood_post = "durapick:dura_wood"
+    durapick_resource_wood_pre = "group:wood"
+end
 
 -- Does the pick recipe need the previous pickaxe to make it?
 durapick_previous_pick = true
