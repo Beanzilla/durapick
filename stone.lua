@@ -7,7 +7,7 @@ minetest.register_tool("durapick:stone_pick", {
 		max_drop_level=1,
 		groupcaps={
             -- Added ability for stone pick to mine like steel pick, just slower
-			cracky = {times={[2]=2.0, [3]=1.00}, uses=(durapick_durability_stone * durapick_durability_factor), maxlevel=1},
+			cracky = {times={[2]=2.0, [3]=1.00}, uses=(durapick.durabilities.stone * durapick.factor), maxlevel=1},
 		},
 		damage_groups = {fleshy=4},
     },
@@ -15,14 +15,14 @@ minetest.register_tool("durapick:stone_pick", {
 	groups = {pickaxe = 1}
 })
 
-if durapick_previous_pick then
+if durapick.use_previous_in_recipe then
     minetest.register_craft({
         type = "shaped",
         output = "durapick:stone_pick 1",
         recipe = { -- Use globals to allow customized recipes
-            {durapick_resource_stone, "durapick:wood_pick", durapick_resource_stone},
-            {"", durapick_stick, ""},
-            {"", durapick_stick, ""}
+            {durapick.resource.stone, "durapick:wood_pick", durapick.resource.stone},
+            {"", durapick.resource.stick, ""},
+            {"", durapick.resource.stick, ""}
         },
     })
 else
@@ -30,9 +30,9 @@ else
         type = "shaped",
         output = "durapick:stone_pick 1",
         recipe = { -- Use globals to allow customized recipes
-            {durapick_resource_stone, durapick_resource_stone, durapick_resource_stone},
-            {"", durapick_stick, ""},
-            {"", durapick_stick, ""}
+            {durapick.resource._stone, durapick.resource.stone, durapick.resource.stone},
+            {"", durapick.resource.stick, ""},
+            {"", durapick.resource.stick, ""}
         },
     })
 end

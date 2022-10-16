@@ -6,7 +6,7 @@ minetest.register_tool("durapick:steel_pick", {
 		full_punch_interval = 1.0,
 		max_drop_level=1,
 		groupcaps={
-			cracky = {times={[1]=4.00, [2]=1.60, [3]=0.80}, uses=(durapick_durability_steel * durapick_durability_factor), maxlevel=2},
+			cracky = {times={[1]=4.00, [2]=1.60, [3]=0.80}, uses=(durapick.durabilities.steel * durapick.factor), maxlevel=2},
 		},
 		damage_groups = {fleshy=4},
     },
@@ -14,14 +14,14 @@ minetest.register_tool("durapick:steel_pick", {
 	groups = {pickaxe = 1}
 })
 
-if durapick_previous_pick then
+if durapick.use_previous_in_recipe then
     minetest.register_craft({
         type = "shaped",
         output = "durapick:steel_pick 1",
         recipe = { -- Use globals to allow customized recipes
-            {durapick_resource_steel, "durapick:bronze_pick", durapick_resource_steel},
-            {"", durapick_stick, ""},
-            {"", durapick_stick, ""}
+            {durapick.resource.steel, "durapick:bronze_pick", durapick.resource.steel},
+            {"", durapick.resource.stick, ""},
+            {"", durapick.resource.stick, ""}
         },
     })
 else
@@ -29,9 +29,9 @@ else
         type = "shaped",
         output = "durapick:steel_pick 1",
         recipe = { -- Use globals to allow customized recipes
-            {durapick_resource_steel, durapick_resource_steel, durapick_resource_steel},
-            {"", durapick_stick, ""},
-            {"", durapick_stick, ""}
+            {durapick.resource.steel, durapick.resource.steel, durapick.resource.steel},
+            {"", durapick.resource.stick, ""},
+            {"", durapick.resource.stick, ""}
         },
     })
 end

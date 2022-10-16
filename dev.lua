@@ -3,7 +3,9 @@
 
 -- Mese Pickaxe: special tool that digs "everything" instantly
 
-if durapick_durability_dev then
+local pick_times = {[1]=durapick.dev_pick_speed, [2]=durapick.dev_pick_speed, [3]=durapick.dev_pick_speed}
+
+if durapick.dev_durability then
 	minetest.register_tool("durapick:dev_pick", {
 		description = "Dev Pickaxe",
 		inventory_image = "durapick_dev.png",
@@ -12,11 +14,11 @@ if durapick_durability_dev then
 			max_drop_level=3,
 			groupcaps={
 				-- This will mine everything in 0.5 seconds
-				cracky={times={[1]=0.5, [2]=0.5, [3]=0.5}, (durapick_durability_dev_amt * durapick_durability_factor), maxlevel=255},
-				crumbly={times={[1]=0.5, [2]=0.5, [3]=0.5}, (durapick_durability_dev_amt * durapick_durability_factor), maxlevel=255},
-				snappy={times={[1]=0.5, [2]=0.5, [3]=0.5}, (durapick_durability_dev_amt * durapick_durability_factor), maxlevel=255},
-				choppy={times={[1]=0.5, [2]=0.5, [3]=0.5}, (durapick_durability_dev_amt * durapick_durability_factor), maxlevel=255},
-				dig_immediate={times={[1]=0.5, [2]=0.5, [3]=0.5}, (durapick_durability_dev_amt * durapick_durability_factor), maxlevel=255},
+				cracky={times=pick_times, uses=(durapick.durabilities.dev * durapick.factor), maxlevel=255},
+				crumbly={times=pick_times, uses=(durapick.durabilities.dev * durapick.factor), maxlevel=255},
+				snappy={times=pick_times, uses=(durapick.durabilities.dev * durapick.factor), maxlevel=255},
+				choppy={times=pick_times, uses=(durapick.durabilities.dev * durapick.factor), maxlevel=255},
+				dig_immediate={times=pick_times, uses=(durapick.durabilities.dev * durapick.factor), maxlevel=255},
 			},
 			-- Modified damage due to the fact it is craftable
 			damage_groups = {fleshy=8},
@@ -31,11 +33,11 @@ else
 			max_drop_level=3,
 			groupcaps={
 				-- This will mine everything in 0.5 seconds
-				cracky={times={[1]=0.5, [2]=0.5, [3]=0.5}, maxlevel=255},
-				crumbly={times={[1]=0.5, [2]=0.5, [3]=0.5}, maxlevel=255},
-				snappy={times={[1]=0.5, [2]=0.5, [3]=0.5}, maxlevel=255},
-				choppy={times={[1]=0.5, [2]=0.5, [3]=0.5}, maxlevel=255},
-				dig_immediate={times={[1]=0.5, [2]=0.5, [3]=0.5}, maxlevel=255},
+				cracky={times=pick_times, maxlevel=255},
+				crumbly={times=pick_times, maxlevel=255},
+				snappy={times=pick_times, maxlevel=255},
+				choppy={times=pick_times, maxlevel=255},
+				dig_immediate=pick_times, maxlevel=255},
 			},
 			-- Modified damage due to the fact it is craftable
 			damage_groups = {fleshy=8},
@@ -43,15 +45,17 @@ else
 	})
 end
 
-minetest.register_craft({
-    type = "shapeless",
-    output = "durapick:dev_pick 1",
-    recipe = {
-		"durapick:wood_pick",
-		"durapick:stone_pick",
-		"durapick:bronze_pick",
-		"durapick:steel_pick",
-		"durapick:mese_pick",
-		"durapick:diamond_pick",
-    },
-})
+if durapick.dev_pick then
+	minetest.register_craft({
+		type = "shapeless",
+		output = "durapick:dev_pick 1",
+		recipe = {
+			"durapick:wood_pick",
+			"durapick:stone_pick",
+			"durapick:bronze_pick",
+			"durapick:steel_pick",
+			"durapick:mese_pick",
+			"durapick:diamond_pick",
+		},
+	})
+end

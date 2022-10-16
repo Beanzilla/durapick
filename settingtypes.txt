@@ -1,0 +1,12 @@
+
+# Can you craft a Dev Pickaxe, essentially a super pickaxe.
+durapick.dev_pick (Dev Pickaxe, Craftable) bool false
+
+# Does the Dev Pickaxe have durability.
+durapick.dev_durability (Dev Pickaxe, Durability) bool true
+
+# Number of times a Durable Pickaxe is more durable than it's original.
+durapick.factor (Pickaxe Durability Factor) int 12 2 65535
+
+# Require the previous "tier" pickaxe in the craft recipe.
+durapick.use_previous_in_recipe (Use Previous Pickaxe in Recipe) bool true

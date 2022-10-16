@@ -9,7 +9,7 @@ minetest.register_tool("durapick:wood_pick", {
 		max_drop_level=1,
 		groupcaps={
             -- Changed it so the wood pick has the ability to mine like a steel pick, just slower
-			cracky = {times={[3]=1.60}, uses=(durapick_durability_wood * durapick_durability_factor), maxlevel=1},
+			cracky = {times={[3]=1.60}, uses=(durapick.durabilities.wood * durapick.factor), maxlevel=1},
 		},
 		damage_groups = {fleshy=4},
     },
@@ -22,9 +22,9 @@ minetest.register_craft({
     type = "shaped",
     output = "durapick:wood_pick 1",
     recipe = { -- Use globals to allow customized recipes
-	{durapick_resource_wood_post, durapick_resource_wood_post, durapick_resource_wood_post},
-	{"", durapick_stick, ""},
-	{"", durapick_stick, ""}
+	{durapick.resource.wood.post, durapick.resource.wood.post, durapick.resource.wood.post},
+	{"", durapick.resource.stick, ""},
+	{"", durapick.resource.stick, ""}
     },
 })
 
@@ -36,18 +36,17 @@ minetest.register_node("durapick:dura_wood", {
     is_ground_content = false,
     groups = {choppy = 2, oddly_breakable_by_hand = 2},
     sounds = default.node_sound_wood_defaults(),
+	stack_max = 99,
 })
 
-ItemStack("durapick:dura_wood", 99)
-
-if durapick_resource_wood_pre ~= "" then
+if durapick.resource.wood.pre ~= "" then
 	minetest.register_craft({
 	    type = "shaped",
 	    output = "durapick:dura_wood 1",
 	    recipe = { -- Use globals to allow customized recipes
-		{durapick_resource_wood_pre, durapick_resource_wood_pre, durapick_resource_wood_pre},
-		{durapick_resource_wood_pre, durapick_resource_wood_pre, durapick_resource_wood_pre},
-		{durapick_resource_wood_pre, durapick_resource_wood_pre, durapick_resource_wood_pre}
+		{durapick.resource.wood.pre, durapick.resource.wood.pre, durapick.resource.wood.pre},
+		{durapick.resource.wood.pre, durapick.resource.wood.pre, durapick.resource.wood.pre},
+		{durapick.resource.wood.pre, durapick.resource.wood.pre, durapick.resource.wood.pre}
 	    },
 	})
 end
