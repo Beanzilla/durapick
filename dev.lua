@@ -37,7 +37,7 @@ else
 				crumbly={times=pick_times, maxlevel=255},
 				snappy={times=pick_times, maxlevel=255},
 				choppy={times=pick_times, maxlevel=255},
-				dig_immediate=pick_times, maxlevel=255},
+				dig_immediate={times=pick_times, maxlevel=255},
 			},
 			-- Modified damage due to the fact it is craftable
 			damage_groups = {fleshy=8},
