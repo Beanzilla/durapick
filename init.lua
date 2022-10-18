@@ -11,7 +11,7 @@ durapick = {
         bronze = 360,
         mese = 540,
         diamond = 610,
-        dev = 730
+        dev = 610 -- This plus factor = real dev pick durability
     },
     dev_pick_speed = 0.5, -- DO NOT CHANGE
     dev_durability = true, -- settings.lua
@@ -50,6 +50,7 @@ else
 end
 
 dofile(modpath .. DIR_DELIM .. "settings.lua")
+durapick.durabilities.dev = durapick.durabilities.diamond + durapick.factor
 
 -- Merge all files, from worst to best, top to bottom
 dofile(modpath .. DIR_DELIM .. "wood.lua")
